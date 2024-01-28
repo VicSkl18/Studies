@@ -14,19 +14,26 @@ class MainWindow(QMainWindow):
         #Atribuindo os elementos a uma instância
         self.lbl0 = QLabel("Nome completo")
         self.input0 = QLineEdit()
+      
         self.lbl1 = QLabel("Gênero")
         self.selection0 = QComboBox()
         self.selection0.addItems(["Masculino", "Feminino"])
+        
         self.lbl2 = QLabel("CEP")
         self.input1 = QLineEdit()
+      
         self.lbl3 = QLabel("Logradouro")
         self.input2 = QLineEdit()
+      
         self.lbl4 = QLabel("Número")
         self.input3 = QLineEdit()
+      
         self.lbl5 = QLabel("Bairro")
         self.input4 = QLineEdit()
+      
         self.lbl6 = QLabel("Cidade")
         self.input5 = QLineEdit()
+      
         self.lbl7 = QLabel("UF")
         self.input6 = QLineEdit()
 
@@ -57,7 +64,7 @@ class MainWindow(QMainWindow):
         container.setLayout(layout) #Adicionando o layout ao 'container'
         self.setCentralWidget(container) #Adicionando o 'container' à instância
     
-        self.input1.textChanged.connect(self.consulta_cep)
+        self.input1.editingFinished.connect(self.consulta_cep)
         
     def consulta_cep(self):
         adress = pycep_correios.get_address_from_cep(self.input1.text())
